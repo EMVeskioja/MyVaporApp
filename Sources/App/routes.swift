@@ -9,11 +9,14 @@ func routes(_ app: Application) throws {
             "There are 10 types of people in the world: Those who understand binary and those who don’t.",
             "Why was the developer so broke? Because he used up all his cache."
         ]
-        return Joke(message: jokes.randomElement() ?? "No joke found!")
+        return Joke(message: jokes.randomElement() ?? "I didn't FIND that funny!")
+    }
+
+    app.get { req -> String in
+        return "I wrote Swift on Windows. If that’s not a joke, I don’t know what is. 😂 But for an actual one, hit <a href='/joke'>/joke</a>."
     }
 }
 
-// Define `Joke` struct
 struct Joke: Content {
     let message: String
 }
